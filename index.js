@@ -55,14 +55,33 @@ function venueDetails(responseJson){
                 if(response.ok){
                     return response.json();
                 }
-                throw new Error(resposne.statusText);
+                throw new Error(response.statusText);
             })
             .then(responseJson => displayVenues(responseJson))
             .catch(err => console.log(err));
     };
 }
 
+function displayVenues(responseJson){
+    console.log(responseJson);
+    let venuePhoto = `${responseJson.response.venue.bestPhoto.prefix}` + `cap100` + `${responseJson.response.venue.bestPhoto.suffix}`;
+    $('.results').append(
+        `
+        <section class="venues">
+        <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
+        <h3 class="resultList">${responseJson.response.venue.name}</h3>
+        <p>${responseJson.response.venue.location.address}</p>
+        </section>
+        `
+    )
+}
+
 $(function(){
     console.log('App loaded!');
     watchForm();
 })
+
+//responseJson.resposne.venue
+//name
+//location
+//discription
