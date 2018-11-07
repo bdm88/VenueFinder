@@ -1,0 +1,11 @@
+.venueResults {
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.photoOfVenue {
+    float: left;
+    padding-right: 5px;
+}

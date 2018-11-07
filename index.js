@@ -67,10 +67,10 @@ function displayVenues(responseJson){
     let venuePhoto = `${responseJson.response.venue.bestPhoto.prefix}` + `cap100` + `${responseJson.response.venue.bestPhoto.suffix}`;
     $('.results').append(
         `
-        <section class="venues">
-        <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
-        <h3 class="resultList">${responseJson.response.venue.name}</h3>
-        <p>${responseJson.response.venue.location.address}</p>
+        <section class="venueResults">
+            <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
+            <h3 class="venueName">${responseJson.response.venue.name}</h3>
+            <p>${responseJson.response.venue.location.address}</p>
         </section>
         `
     )
