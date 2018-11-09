@@ -1,3 +1,22 @@
+.weatherResultsContainer {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.weatherResults {
+    display: inline-block;
+    border: solid black 1px;
+    padding: 5px;
+}
+
+.weather {
+    margin: 2px;
+}
+
+.weatherTitles {
+    font-weight: bold;
+}
+
 .venueResults {
     margin-top: 5px;
     padding: 5px;
@@ -8,4 +27,15 @@
 .photoOfVenue {
     float: left;
     padding-right: 5px;
+}
+
+.venuePopup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.venuePopup.show {
+    visibility: visible;
 }
