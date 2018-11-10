@@ -7,10 +7,15 @@
     display: inline-block;
     border: solid black 1px;
     padding: 5px;
+    text-align: center;
 }
 
 .weather {
     margin: 2px;
+}
+
+.wDescription {
+    text-transform: capitalize;
 }
 
 .weatherTitles {
@@ -34,6 +39,18 @@
     display: inline-block;
     cursor: pointer;
     visibility: hidden;
+}
+
+.venuePopup .venuePopupText {
+    width: 200px;
+    border-radius: 6px;
+    background-color: bisque;
+    padding: 5px 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    z-index: 1;
 }
 
 .venuePopup.show {

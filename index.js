@@ -41,7 +41,7 @@ function formatWeatherParameters(weatherParameters){
 
 function displayWeather(responseJson){
     console.log(responseJson);
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < responseJson.list.length; i = i + 3){
         let dateTime = `${responseJson.list[i].dt_txt}`.split(" ");
         let date = dateTime[0];
         let time = dateTime[1];
@@ -51,8 +51,8 @@ function displayWeather(responseJson){
             `
             <section class="weatherResults">
                 <p class="weather"><span class="weatherTitles">Date:</span> ${date}</p>
-                <p class="weather">${time}</p>
-                <p class="weather">${responseJson.list[i].weather[0].description}</p>
+                <p class="weather"><span class="weatherTitles">Time:</span> ${time}</p>
+                <img class="weather wDescription" src="http://openweathermap.org/img/w/${responseJson.list[i].weather[0].icon}.png" alt=">${responseJson.list[i].weather[0].description}">
                 <p class="weather"><span class="weatherTitles">Temp:</span> ${temp}°F</p>
                 <p class="weather"><span class="weatherTitles">Humidity:</span> ${responseJson.list[i].main.humidity}%</p>
                 <p class="weather"><span class="weatherTitles">Wind:</span> ${wind} mph</p>
@@ -116,15 +116,16 @@ function venueDetails(responseJson){
 
 function displayVenues(responseJson){
     console.log(responseJson);
-    let venuePhoto = `${responseJson.response.venue.bestPhoto.prefix}` + `cap100` + `${responseJson.response.venue.bestPhoto.suffix}`;
+    let venuePhoto = `${responseJson.response.venue.bestPhoto.prefix}` + `cap300` + `${responseJson.response.venue.bestPhoto.suffix}`;
     $('.venueResultsContainer').append(
         `
         <section class="venueResults">
             <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
             <h3 class="venueName">${responseJson.response.venue.name}</h3>
+            <p>${responseJson.response.venue.location.formattedAddress}</p>
             <button type="button" class="popupToggle">Venue Information</button>
             <section class="venuePopup">
-                <p>${responseJson.response.venue.description}</p>
+                <p class="venuePopupText">${responseJson.response.venue.description}</p>
             </section>
         </section>
         `
@@ -135,7 +136,7 @@ function popupInfo(){
     console.log('functioncalled');
     $('.venueResultsContainer').on('click', '.popupToggle', function(){
         console.log('buttonclicked');
-        $('.venuePopup').toggleClass('show');
+        $(this).parent().find('.venuePopup').toggleClass('show');
     })
 }
 
