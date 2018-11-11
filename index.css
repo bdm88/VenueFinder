@@ -6,6 +6,23 @@ body {
     background: #ebe7db;
 }
 
+header {
+    position: relative;
+}
+
+.attribution {
+    height: 5px;
+    width: 80px;
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.categories, .searchCity {
+    width: 40%;
+}
+
 .weatherResultsContainer {
     overflow: auto;
     white-space: nowrap;

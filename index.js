@@ -98,7 +98,7 @@ function formatVenueParameters(venueParameters){
 function venueDetails(responseJson){
     console.log(responseJson);
 //    for(let i = 0; i < responseJson.response.venues.length; i++){
-    for(let i = 0; i < 1; i++){
+    for(let i = 0; i < 10; i++){
         const venueDetailsRequest = 'https://api.foursquare.com/v2/venues/';
         const venueId = responseJson.response.venues[i].id;
         const detailsAuth = 'client_id=WNYR0IYFESHHSPPUJOXSXUYSALZEH4U1FDRRGHLYA5EUDKE4&client_secret=HIUDQJCZZJQSBW1ZADOXVXVZL1AYMK4YEH3VCRV3QFCUS1U3&v=20181106';
