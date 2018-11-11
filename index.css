@@ -4,10 +4,18 @@
 
 body {
     background: #ebe7db;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header {
     position: relative;
+    padding-left: 5px;
+}
+
+form {
+    padding-left: 5px;
 }
 
 .attribution {
@@ -101,4 +109,12 @@ header {
 
 .venuePopup.show {
     visibility: visible;
+}
+
+@media only screen and (min-width: 640px) {
+    .venueResultsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
 }
