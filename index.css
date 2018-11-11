@@ -1,6 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #ebe7db;
+}
+
 .weatherResultsContainer {
     overflow: auto;
     white-space: nowrap;
+    margin-top: 5px;
 }
 
 .weatherResults {
@@ -8,6 +17,7 @@
     border: solid black 1px;
     padding: 5px;
     text-align: center;
+    background: #cfe5fd;
 }
 
 .weather {
@@ -16,22 +26,42 @@
 
 .wDescription {
     text-transform: capitalize;
+    margin: 2px;
 }
 
-.weatherTitles {
+.weatherTitles, .addressTitle {
     font-weight: bold;
 }
 
 .venueResults {
     margin-top: 5px;
-    padding: 5px;
     border: 1px solid black;
     overflow: auto;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .photoOfVenue {
-    float: left;
-    padding-right: 5px;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.venueName, .venueCat {
+    display: inline-block;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 5px 5px;
+}
+
+.popupToggle {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
 }
 
 .venuePopup {
@@ -42,14 +72,13 @@
 }
 
 .venuePopup .venuePopupText {
-    width: 200px;
+    width: 260px;
     border-radius: 6px;
-    background-color: bisque;
-    padding: 5px 0;
-    position: absolute;
+    background-color: #ebe7db;
+    padding: 5px 5px;
     bottom: 125%;
     left: 50%;
-    margin-left: -100px;
+    margin-left: 20px;
     z-index: 1;
 }
 

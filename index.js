@@ -7,6 +7,8 @@ function watchForm(){
         let citySearch = $('input.searchCity').val();
         console.log(categorySearch);
         console.log(citySearch);
+        $('.weatherResults').remove();
+        $('.venueResults').remove();
         getVenues(categorySearch, citySearch);
         getWeather(citySearch);
     })
@@ -53,6 +55,7 @@ function displayWeather(responseJson){
                 <p class="weather"><span class="weatherTitles">Date:</span> ${date}</p>
                 <p class="weather"><span class="weatherTitles">Time:</span> ${time}</p>
                 <img class="weather wDescription" src="http://openweathermap.org/img/w/${responseJson.list[i].weather[0].icon}.png" alt=">${responseJson.list[i].weather[0].description}">
+                <p class="wDescription">${responseJson.list[i].weather[0].description}</p>
                 <p class="weather"><span class="weatherTitles">Temp:</span> ${temp}°F</p>
                 <p class="weather"><span class="weatherTitles">Humidity:</span> ${responseJson.list[i].main.humidity}%</p>
                 <p class="weather"><span class="weatherTitles">Wind:</span> ${wind} mph</p>
@@ -117,19 +120,43 @@ function venueDetails(responseJson){
 function displayVenues(responseJson){
     console.log(responseJson);
     let venuePhoto = `${responseJson.response.venue.bestPhoto.prefix}` + `cap300` + `${responseJson.response.venue.bestPhoto.suffix}`;
-    $('.venueResultsContainer').append(
-        `
-        <section class="venueResults">
-            <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
-            <h3 class="venueName">${responseJson.response.venue.name}</h3>
-            <p>${responseJson.response.venue.location.formattedAddress}</p>
-            <button type="button" class="popupToggle">Venue Information</button>
-            <section class="venuePopup">
-                <p class="venuePopupText">${responseJson.response.venue.description}</p>
+    let venueAddress = `${responseJson.response.venue.location.formattedAddress[0]}, ${responseJson.response.venue.location.formattedAddress[1]}`
+    if(responseJson.response.venue.description == null){
+        $('.venueResultsContainer').append(
+            `
+            <section class="venueResults">
+                <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
+                <h3 class="venueName">${responseJson.response.venue.name}</h3><br>
+                <p class="venueCat">${responseJson.response.venue.categories[0].name}</p><br>
+                <button type="button" class="popupToggle">Venue Information</button>
+                <section class="venuePopup">
+                    <p class="venuePopupText">
+                        <span class="addressTitle">Address:</span><br>
+                        ${responseJson.response.venue.location.formattedAddress}
+                    </p>
+                </section>
             </section>
-        </section>
-        `
-    )
+            `
+        )
+    }
+    else {
+        $('.venueResultsContainer').append(
+            `
+            <section class="venueResults">
+                <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
+                <h3 class="venueName">${responseJson.response.venue.name}</h3><br>
+                <p class="venueCat">${responseJson.response.venue.categories[0].name}</p><br>
+                <button type="button" class="popupToggle">Venue Information</button>
+                <section class="venuePopup">
+                    <p class="venuePopupText">${responseJson.response.venue.description}<br>
+                        <span class="addressTitle">Address:</span><br>
+                        ${venueAddress}
+                    </p>
+                </section>
+            </section>
+            `
+        )
+    }
 }
 
 function popupInfo(){
