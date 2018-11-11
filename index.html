@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery.min.js"></script>
   </head>
   <body>
-    <header>
+    <header role="banner">
       <img class="attribution" src="powered-by-foursquare-blue.png" alt="Powered by Foursquare">
       <h1>VenueFinder</h1>
     </header>
@@ -23,8 +23,8 @@
       <input class="searchCity" type="text" placeholder="Portland, OR, US" required>
       <input class="searchButton" type="submit" value="Search">
     </form>
-    <section class="weatherResultsContainer"></section>
-    <section class="venueResultsContainer"></section>
+    <section role="region" class="weatherResultsContainer"></section>
+    <section role="region" class="venueResultsContainer"></section>
     <script src="index.js"></script>
   </body>
 </html>

@@ -51,7 +51,7 @@ function displayWeather(responseJson){
         let wind = `${responseJson.list[i].wind.speed}`.split(".")[0];
         $('.weatherResultsContainer').append(
             `
-            <section class="weatherResults">
+            <section role="region" class="weatherResults">
                 <p class="weather"><span class="weatherTitles">Date:</span> ${date}</p>
                 <p class="weather"><span class="weatherTitles">Time:</span> ${time}</p>
                 <img class="weather wDescription" src="http://openweathermap.org/img/w/${responseJson.list[i].weather[0].icon}.png" alt=">${responseJson.list[i].weather[0].description}">
@@ -124,12 +124,12 @@ function displayVenues(responseJson){
     if(responseJson.response.venue.description == null){
         $('.venueResultsContainer').append(
             `
-            <section class="venueResults">
+            <section role="region" class="venueResults">
                 <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
                 <h3 class="venueName">${responseJson.response.venue.name}</h3><br>
                 <p class="venueCat">${responseJson.response.venue.categories[0].name}</p><br>
                 <button type="button" class="popupToggle">Venue Information</button>
-                <section class="venuePopup">
+                <section role="region" class="venuePopup">
                     <p class="venuePopupText">
                         <span class="addressTitle">Address:</span><br>
                         ${responseJson.response.venue.location.formattedAddress}
@@ -142,12 +142,12 @@ function displayVenues(responseJson){
     else {
         $('.venueResultsContainer').append(
             `
-            <section class="venueResults">
+            <section role="region" class="venueResults">
                 <img class="photoOfVenue" src="${venuePhoto}" alt="Venue Photo">
                 <h3 class="venueName">${responseJson.response.venue.name}</h3><br>
                 <p class="venueCat">${responseJson.response.venue.categories[0].name}</p><br>
                 <button type="button" class="popupToggle">Venue Information</button>
-                <section class="venuePopup">
+                <section role="region" class="venuePopup">
                     <p class="venuePopupText">${responseJson.response.venue.description}<br>
                         <span class="addressTitle">Address:</span><br>
                         ${venueAddress}
