@@ -5,8 +5,6 @@ function watchForm(){
         event.preventDefault();
         let categorySearch = $('select.categories').val();
         let citySearch = $('input.searchCity').val();
-        console.log(categorySearch);
-        console.log(citySearch);
         $('.weatherResults').remove();
         $('.venueResults').remove();
         getVenues(categorySearch, citySearch);
@@ -160,15 +158,12 @@ function displayVenues(responseJson){
 }
 
 function popupInfo(){
-    console.log('functioncalled');
     $('.venueResultsContainer').on('click', '.popupToggle', function(){
-        console.log('buttonclicked');
         $(this).parent().find('.venuePopup').toggleClass('show');
     })
 }
 
 $(function(){
-    console.log('App loaded!');
     watchForm();
     popupInfo();
 })
