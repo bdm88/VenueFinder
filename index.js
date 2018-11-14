@@ -14,8 +14,9 @@ function watchForm(){
 
 function getWeather(citySearch){
     const searchWeatherUrl = 'http://api.openweathermap.org/data/2.5/forecast';
+    let cityWeatherSearch = citySearch + ',us';
     const weatherParameters = {
-        q: citySearch,
+        q: cityWeatherSearch,
         units: 'imperial',
         APPID: '17b66e4018e261339e11f79fbf4cdce2',
     };
@@ -84,7 +85,7 @@ function getVenues(categorySearch, citySearch){
             throw new Error(response.statusText);
         })
         .then(responseJson => venueDetails(responseJson))
-        .catch(err => console.log(err));
+        .catch(err => alert('City not found.'));
 }
 
 function formatVenueParameters(venueParameters){
@@ -111,7 +112,7 @@ function venueDetails(responseJson){
                 throw new Error(response.statusText);
             })
             .then(responseJson => displayVenues(responseJson))
-            .catch(err => console.log(err));
+            .catch(err => alert('Try again later.'));
     };
 }
 

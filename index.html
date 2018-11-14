@@ -20,11 +20,15 @@
         <option value="4d4b7105d754a06376d81259">Nightlife</option>
         <option value="4d4b7105d754a06377d81259">Outdoors & Recreation</option>
       </select>
-      <input class="searchCity" type="text" placeholder="Portland, OR, US" required>
+      <input class="searchCity" id="cityAutocomplete" type="text" placeholder="Select a city." required>
       <input class="searchButton" type="submit" value="Search">
     </form>
     <section role="region" class="weatherResultsContainer"></section>
-    <section role="region" class="venueResultsContainer"></section>
-    <script src="index.js"></script>
+    <section role="region" class="venueResultsContainer">
+      <section role="region" class="venueResults">
+        <p class="landingText">Select a category and provide a city and state above for venues.</p>
+      </section>
+    </section>
+   <script src="index.js"></script>
   </body>
 </html>
