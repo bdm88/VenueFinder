@@ -8,7 +8,7 @@ Landing Page:
 
 Results Page:
 
-![Results screen](Screenshots/Results&20Page.png)
+![Results screen](Screenshots/Results%20Page.png)
 
 ## Link to live app
 https://bdm88.github.io/VenueFinder/
