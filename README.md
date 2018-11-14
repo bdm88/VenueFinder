@@ -4,7 +4,7 @@ Help users find venues in a city and give the forecast.
 ## Screenshots
 Landing Page:
 
-![landing screen](Screenshots/Landing Page.png)
+![landing screen](VenueFinder/Screenshots/Landing Page.png)
 
 Results Page:
 
