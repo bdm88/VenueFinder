@@ -1,5 +1,5 @@
 # VenueFinder
-Help users find venues in a city and give the forecast.
+Users can find venues and weather forecast for a given city, after selecting a category and inputting a city, state.
 
 ## Screenshots
 Landing Page:
